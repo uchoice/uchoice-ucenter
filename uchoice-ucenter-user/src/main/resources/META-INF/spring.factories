@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.uchoice.ucenter.user.service.mysql.MysqlUserServiceImpl

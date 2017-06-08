@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.uchoice.ucenter.config.db.mysql.DataSourceConfiguration,\
+  com.uchoice.ucenter.config.db.mysql.DataSourceAspect
