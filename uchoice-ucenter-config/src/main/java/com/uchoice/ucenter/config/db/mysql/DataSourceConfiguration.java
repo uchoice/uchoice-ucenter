@@ -18,8 +18,10 @@ import java.util.Map;
  * Created by Administrator on 2017/5/25.
  */
 @Configuration
-@MapperScan(value ={"com.uchoice.ucenter.user.dao.mysql.mapper"})
-//@ComponentScan(value = {"com.uchoice.ucenter"})
+@ComponentScan(value = {"com.uchoice.ucenter"})
+@MapperScan(value = {"com.uchoice.ucenter.user.dao.mysql.mapper",
+        "com.uchoice.ucenter.role.dao.mysql.mapper",
+        "com.uchoice.ucenter.organization.dao.mysql.mapper"})
 public class DataSourceConfiguration {
     @Value("${datasource.type}")
     private Class<? extends DataSource> datasourceType;

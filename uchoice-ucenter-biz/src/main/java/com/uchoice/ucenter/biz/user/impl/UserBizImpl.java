@@ -2,8 +2,6 @@ package com.uchoice.ucenter.biz.user.impl;
 
 import com.uchoice.ucenter.biz.user.UserBiz;
 import com.uchoice.ucenter.biz.user.vo.UserInfo;
-import com.uchoice.ucenter.user.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,11 +9,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserBizImpl implements UserBiz{
-    @Autowired
-    private UserService userService;
     @Override
     public void addUserInfo(UserInfo userInfo) {
-        userService.addUser(userInfo.getUser());
         //
     }
 

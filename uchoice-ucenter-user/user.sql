@@ -27,7 +27,7 @@ AUTO_INCREMENT=1
 ROW_FORMAT=DYNAMIC
 ;
 CREATE TABLE `uc_user_passport` (
-`id`  bigint(20) NOT NULL ,
+`id`  bigint(20) NOT NULL AUTO_INCREMENT ,
 `user_id`  bigint(20) NOT NULL COMMENT '用户ID' ,
 `identity_type`  int(255) NULL DEFAULT NULL COMMENT '凭证类型 0：用户名 1：手机号 2：邮箱 3：第三方QQ  4：第三方微信' ,
 `identifier`  varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '凭证' ,
@@ -39,21 +39,28 @@ INDEX `login_idx` (`identity_type`, `identifier`, `credential`) USING BTREE
 )
 ENGINE=InnoDB
 DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+AUTO_INCREMENT=1
 ROW_FORMAT=DYNAMIC
 ;
+
+
 CREATE TABLE `uc_user_relation_info` (
-`id`  bigint(20) NULL DEFAULT NULL ,
+`id`  bigint(20) NOT NULL AUTO_INCREMENT ,
 `user_id`  bigint(20) NULL DEFAULT NULL COMMENT '用户ID' ,
 `org_id`  bigint(20) NULL DEFAULT NULL COMMENT '组织ID' ,
 `role_ids`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '角色ID，可多个,JSON<Long>' ,
 `tags`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标签 JSON(List<Long></>)' ,
 `extention`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '扩展字段' ,
+PRIMARY KEY (`id`),
 INDEX `user_id_idx` (`user_id`) USING BTREE
 )
 ENGINE=InnoDB
 DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+AUTO_INCREMENT=1
 ROW_FORMAT=DYNAMIC
 ;
+
+
 
 
 

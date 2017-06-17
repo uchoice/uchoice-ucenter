@@ -2,13 +2,14 @@ package com.uchoice.ucenter.user.test.user;
 
 import com.uchoice.ucenter.user.UchoiceUcenterUserApplication;
 import com.uchoice.ucenter.user.dao.mysql.entity.User;
-import com.uchoice.ucenter.user.service.UserService;
-import com.uchoice.ucenter.user.service.mysql.MysqlUserServiceImpl;
+import com.uchoice.ucenter.user.dao.mysql.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.Date;
 
 /**
  * Created by admin on 2017/5/29.
@@ -17,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest(classes = UchoiceUcenterUserApplication.class)
 public class UserTest {
     @Autowired
-    private UserService userService;
+    private UserMapper userMapper;
     @Test
     public void addUserTest(){
         User user = new User();
@@ -28,22 +29,10 @@ public class UserTest {
         user.setStatus((byte)2);
         user.setUserNameCn("大王派我来巡山");
         user.setUserNameEn("king send me check mouton");
-        userService.addUser(user);
-    }
-    @Test
-    public void modifyUser(){
-        User user = new User();
-        user.setUserId(Long.valueOf(21515151));
-        user.setEmail("ucenter@uchoice.com");
-        user.setPhone(Long.valueOf(1526352415));
-        user.setExtention("modify extention test");
-        user.setStatus((byte)3);
-        user.setUserNameCn("大王派我来巡山");
-        user.setUserNameEn("king send me check mouton");
-        userService.modifyUser(user);
-    }
-    @Test
-    public void deleteUser(){
-        userService.deleteUserById(Long.valueOf(21515151));
+        user.setCreateDate(new Date());
+        user.setCreateUserId(Long.valueOf(21515151));
+        user.setModifyDate(new Date());
+        user.setModifyUserId(Long.valueOf(21515151));
+        userMapper.insert(user);
     }
 }

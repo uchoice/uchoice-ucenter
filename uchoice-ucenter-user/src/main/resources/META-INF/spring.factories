@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.uchoice.ucenter.user.service.mysql.MysqlUserServiceImpl
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#  com.uchoice.ucenter.user.dao.mysql.UserMapperConfiguration
